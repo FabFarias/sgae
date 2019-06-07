@@ -1,0 +1,99 @@
+<h4>Gerenciamento de membros</h4>
+
+<div style="width: 100%;padding-top: 50px">
+  <div class="row" style="width: 70%">
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1" (click)="configuraSalvar()">Cadastrar novo</a>
+    <div class="col s12 m6" style="width: 100%">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Membros cadastrados</span>
+          <table>
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Idade</th>
+                  <th>Endereço</th>
+                  <th>Documento</th>
+                  <th>Alterar</th>
+                  <th>Excluir</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let membro of membros">
+                  <td>{{membro.nome}}</td>
+                  <td>{{membro.idade}}</td>
+                  <td>{{membro.endereco}}</td>
+                  <td>{{membro.documento}}</td>
+                  <td style="width: 100px">
+                    <a class="waves-effect waves-light btn modal-trigger" style="width: 50px" href="#modalAlterar" (click)="configuraAlterar(membro)">
+                      <i class="material-icons right">edit</i>
+                    </a>
+                  </td>
+                  <td style="width: 100px">
+                    <a class="waves-effect waves-light btn modal-trigger" style="width: 50px" (click)="excluirMembro(membro)">
+                      <i class="material-icons right">delete</i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>Cadastrar novo</h4>
+    <div class="row">
+      <div class="input-field col s6">
+        <input placeholder="" id="first_name" type="text" class="validate" [(ngModel)]="novoMembro.nome">
+        <label for="first_name">Nome</label>
+      </div>
+      <div class="input-field col s6">
+        <input placeholder="" id="idade" type="text" class="validate" [(ngModel)]="novoMembro.idade">
+        <label for="idade">Idade</label>
+      </div>
+      <div class="input-field col s6">
+        <input placeholder="" id="endereco" type="text" class="validate" [(ngModel)]="novoMembro.endereco">
+        <label for="endereco">Endereço</label>
+      </div>
+      <div class="input-field col s6">
+        <input placeholder="" id="documento" type="text" class="validate" [(ngModel)]="novoMembro.documento">
+        <label for="documento">Documento</label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="salvarMembro()" class="modal-close waves-effect waves-green btn-flat">Cadastrar</a>
+  </div>
+</div>
+
+<div id="modalAlterar" class="modal">
+  <div class="modal-content">
+    <h4>Cadastrar novo</h4>
+    <div class="row">
+      <div class="input-field col s6">
+        <input placeholder="" id="first_name" type="text" class="validate" [(ngModel)]="novoMembro.nome">
+        <label for="first_name">Nome</label>
+      </div>
+      <div class="input-field col s6">
+        <input placeholder="" id="idade" type="text" class="validate" [(ngModel)]="novoMembro.idade">
+        <label for="idade">Idade</label>
+      </div>
+      <div class="input-field col s6">
+        <input placeholder="" id="endereco" type="text" class="validate" [(ngModel)]="novoMembro.endereco">
+        <label for="endereco">Endereço</label>
+      </div>
+      <div class="input-field col s6">
+        <input placeholder="" id="documento" type="text" class="validate" [(ngModel)]="novoMembro.documento">
+        <label for="documento">Documento</label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="alterarMembro()" class="modal-close waves-effect waves-green btn-flat">Alterar</a>
+  </div>
+</div>
